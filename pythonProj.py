@@ -1,3 +1,4 @@
+# Define the truth table function
 def truthTable(expression):
     """
     Generates a truth table for the given boolean expression.
@@ -10,13 +11,14 @@ def truthTable(expression):
     print("\nBoolean Expression:")
     print("  X = " + expression.upper())
     expression = expression.lower()
-    
-    # Replace Boolean operators with Python bitwise operators
+
+    # Replace strings with bitwise operators
     expression = expression.replace("and", "&")
     expression = expression.replace("xor", "^")
     expression = expression.replace("or", "|")
     expression = expression.replace("not", "~")
-    
+
+    # Print the Truth Table based on user input
     print("\nTruth Table:")
     if inputs == 2:
         print("  \033[1m-------------\033[0m")
@@ -54,6 +56,7 @@ def truthTable(expression):
                         print(f"  | {chr(84 if a else 70)} | {chr(84 if b else 70)} | {chr(84 if c else 70)} | {chr(84 if d else 70)} | {chr(84 if x else 70)} |")
                         print("  \033[1m---------------------\033[0m")
 
+# Define the bitwise function
 def bitwise_shift(value, shift_by, direction):
     """
     Perform a bitwise left or right shift on a given value.
