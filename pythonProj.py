@@ -86,7 +86,7 @@ def bitwise_shift(value, shift_by, direction):
 
  
 # Call functions
-expression = input("Enter a boolean expression (e.g., A OR (B AND C)): ")
+expression = input("Enter a boolean expression (A OR (B AND C)): ")
 truthTable(expression)
 
 print("\nPerforming bitwise left shift:")
