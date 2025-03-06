@@ -29,14 +29,14 @@ def prove_inequality(x, y):
     if x <= 0 or y <= 0:
         return "x and y must be positive real numbers."
 
-    lhs = (x / y) + (y / x)
+    lhs = round((x / y) + (y / x), 2)
     rhs = 2
     proof_holds = lhs >= rhs
 
     print(f"Step-by-step proof for inequality x/y + y/x ≥ 2:")
-    print(f"1. Compute x/y: {x} / {y} = {x/y}")
-    print(f"2. Compute y/x: {y} / {x} = {y/x}")
-    print(f"3. Sum both terms: {x/y} + {y/x} = {lhs}")
+    print(f"1. Compute x/y: {x} / {y} = {round(x/y, 2)}")
+    print(f"2. Compute y/x: {y} / {x} = {round(y/x, 2)}")
+    print(f"3. Add both terms: {round(x/y, 2)} + {round(y/x, 2)} = {lhs}")
     print(f"4. Compare with 2: {lhs} ≥ {rhs} -> {proof_holds}")
     return proof_holds
 
