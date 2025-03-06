@@ -6,6 +6,10 @@ def prove_even(n):
     a = n // 2  # Expressing n as 2a
     squared = pow(n, 2)
     m = pow(a, 2)  # Expressing squared as 4m
+    print(f"Step-by-step proof for even number {n}:")
+    print(f"1. Express {n} as 2a: {n} = 2({a})")
+    print(f"2. Square both sides: {n}^2 = (2a)^2 = 4({m})")
+    print(f"3. Since {n}^2 = 4m holds, {n} is even.")
     return squared == (4 * m)
 
 
@@ -13,6 +17,11 @@ def prove_odd(n):
     k = (n - 1) // 2  # Expressing n as 2k + 1
     squared = pow(n, 2)
     m = squared // 2  # Expressing squared as 2m + 1
+    print(f"Step-by-step proof for odd number {n}:")
+    print(f"1. Express {n} as 2k + 1: {n} = 2({k}) + 1")
+    print(f"2. Square both sides: {n}^2 = (2k + 1)^2 = 4k^2 + 4k + 1")
+    print(f"3. Express as 2m + 1: {squared} = 2({m}) + 1")
+    print(f"4. Since {n}^2 = 2m + 1 holds, {n} is odd.")
     return squared == (2 * m + 1)
 
 
@@ -24,9 +33,11 @@ def prove_inequality(x, y):
     rhs = 2
     proof_holds = lhs >= rhs
 
-    print(f"For x = {x}, y = {y}:")
-    print(f"  x/y + y/x = {lhs} ≥ {rhs} -> {proof_holds}")
-    
+    print(f"Step-by-step proof for inequality x/y + y/x ≥ 2:")
+    print(f"1. Compute x/y: {x} / {y} = {x/y}")
+    print(f"2. Compute y/x: {y} / {x} = {y/x}")
+    print(f"3. Sum both terms: {x/y} + {y/x} = {lhs}")
+    print(f"4. Compare with 2: {lhs} ≥ {rhs} -> {proof_holds}")
     return proof_holds
 
 
@@ -57,23 +68,6 @@ if choice == "1":
         odd_proof = prove_odd(num)
         print("--------------------------------------------------\n")
         print(f"Number: {num}\n")
-        
-        # Even proof
-        a = num // 2
-        squared = pow(num, 2)
-        m = pow(a, 2)
-        print(f"       Proof for Even: {num} = 2a, a={a}")
-        print(f"       {num}^2 = (2a)^2 = 4({m}) = {squared} -> {even_proof}\n")
-        
-        # Odd proof
-        k = (num - 1) // 2
-        squared = pow(num, 2)
-        m = squared // 2
-        print(f"       Proof for Odd: {num}^2 = (2k + 1)^2, k={k}")
-        print(f"       = ((2({k})+1)^2 = {squared}")
-        print(f"       = 2({m})+1 -> {odd_proof}\n")
-        
-        # Categorize number
         if even_proof:
             even_numbers.append(num)
             print(f"       \033[1mConclusion: {num} is even.\033[0m\n")
