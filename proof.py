@@ -1,27 +1,25 @@
+# Check if the input is even
 def prove_even(n):
-    """Checks if a number is even using mathematical proof."""
     if n % 2 != 0:  # If n is odd, it should fail the even test
         return False
 
-    a = n // 2  # Expressing n as 2a
     squared = pow(n, 2)
     m = squared // 4  # Expressing squared as 4m
 
     return squared == (4 * m)  # Ensures correct verification
 
-
+# Check if the input is odd
 def prove_odd(n):
-    """Checks if a number is odd using mathematical proof."""
     if n % 2 == 0:  # If n is even, it should fail the odd test
         return False
 
-    k = (n - 1) // 2  # Expressing n as 2k + 1
     squared = pow(n, 2)
     m = (squared - 1) // 2  # Expressing squared as 2m + 1
 
     return squared == (2 * m + 1)  # Ensures proper odd number verification
 
 def prove_inequality(x, y):
+    """Verifies if x/y + y/x ≥ 2 holds for positive real numbers."""
     if x <= 0 or y <= 0:
         return "x and y must be positive real numbers."
 
@@ -36,7 +34,6 @@ def prove_inequality(x, y):
     print(f"4. Compare with 2: {lhs} ≥ {rhs} -> {proof_holds}")
     return proof_holds
 
-
 def print_table(results):
     """Prints results in a tabular format."""
     print("\nResults:")
@@ -49,7 +46,6 @@ def print_table(results):
         print(f"{num:<8} {str(even_pass):<15} {str(odd_pass):<15}")
 
     print("---------------------------------------")
-
 
 # Menu for user to choose proof type
 print("Choose the type of proof to perform:")
@@ -88,4 +84,4 @@ elif choice == "2":
     except ValueError:
         print("Invalid input. Please enter two positive numbers.")
 else:
-    print("Invalid choice. Please enter 1 or 2.")
+    print("Invalid choice. Please enter 1 or 2.") 
