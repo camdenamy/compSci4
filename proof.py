@@ -32,6 +32,7 @@ def prove_odd(n):
     print(f"4. Verify: {squared} == 2 * {m} + 1 → {result}")
     return result
 
+# Check the inequality x/y + y/x ≥ 2 for positive numbers
 def prove_inequality(x, y):
     if x <= 0 or y <= 0:
         return "x and y must be positive real numbers."
@@ -47,14 +48,29 @@ def prove_inequality(x, y):
     print(f"4. Compare with 2: {lhs} ≥ {rhs} -> {proof_holds}")
     return proof_holds
 
+# Check if x divides y
+def prove_divisibility(x, y):
+    print(f"Proving that {x} divides {y}:")
+    remainder = y % x
+    if remainder == 0:
+        k = y // x
+        print(f"1. Compute {y} % {x} = {remainder} (0) → {x} divides {y}.")
+        print(f"2. Therefore, {y} = {x} * {k}.")
+        return True
+    else:
+        print(f"1. Compute {y} % {x} = {remainder} (not 0) → {x} does not divide {y}.")
+        return False
+
 # Menu for user to choose proof type
 while True:
     print("Choose the type of proof to perform:")
     print("1. Even/Odd Proof")
     print("2. Inequality Proof")
-    choice = input("Enter 1 or 2: ").strip()
+    print("3. Divisibility Proof (x | y)")
+    choice = input("Enter 1, 2, or 3: ").strip()
     
     if choice == "1":
+        # Even/Odd Proof
         while True:
             user_input = input("Enter integers separated by spaces: ").strip()
             try:
@@ -64,6 +80,7 @@ while True:
                 print("Invalid input. Please enter valid integers.")
         
         for num in numbers:
+            print("-" * 50)
             even_pass = prove_even(num)
             print(f"Result: {num} is even? {even_pass}\n")
             odd_pass = prove_odd(num)
@@ -71,6 +88,7 @@ while True:
         break
     
     elif choice == "2":
+        # Inequality Proof
         while True:
             y_input = input("\nEnter two positive numbers separated by a space to test the inequality x/y + y/x ≥ 2: ").strip()
             try:
@@ -83,5 +101,20 @@ while True:
             except ValueError:
                 print("Invalid input. Please enter two positive numbers.")
         break
+
+    elif choice == "3":
+        # Divisibility Proof for x | y
+        while True:
+            user_input = input("Enter two integers separated by a space (x y) to test if x divides y: ").strip()
+            try:
+                x, y = map(int, user_input.split())
+                break  # Valid input, exit loop
+            except ValueError:
+                print("Invalid input. Please enter two integers separated by a space.")
+        
+        result = prove_divisibility(x, y)
+        print(f"Proof result: Does {x} divide {y}? {result}")
+        break
+
     else:
-        print("Invalid choice. Please enter 1 or 2.")
+        print("Invalid choice. Please enter 1, 2, or 3.")
