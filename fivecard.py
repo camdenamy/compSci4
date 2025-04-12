@@ -56,7 +56,7 @@ for hand in itertools.combinations(deck, 5):
     total_hands += 1
 
 # Display probabilities
-print("Poker Hand Probabilities (out of 2,598,960):\n")
+print("Poker Hand Probabilities:\n")
 for hand in [
     "Royal Flush", "Straight Flush", "Four of a Kind", "Full House",
     "Flush", "Straight", "Three of a Kind", "Two Pair", "One Pair", "High Card"
